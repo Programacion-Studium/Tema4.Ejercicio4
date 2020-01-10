@@ -1,0 +1,1 @@
+Ejercicio 4: Realizar un programa que muestre por pantalla una serie de preguntas sobre vehículos. Serán campos de selección única. En primer lugar, se preguntará el tipo de motorización del vehículo entre Diésel, Gasolina, Híbrido o Eléctrico. A continuación, preguntará por el número de puertas entre 3, 4 ó 5. Por último, preguntará si la pintura es metalizada o no.
