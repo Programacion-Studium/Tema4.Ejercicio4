@@ -1,12 +1,16 @@
 package es.Studium.Ejercicio4;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 /**
  * @author alvaro
  *
  */
 
-public class Ejercicio4 extends Frame
+public class Ejercicio4 extends Frame implements WindowListener, ActionListener
 {
 	private static final long serialVersionUID = 1L;
 	
@@ -19,20 +23,20 @@ public class Ejercicio4 extends Frame
 	CheckboxGroup chkgrMotor = new CheckboxGroup();
 	//En este caso, se pueden elegir todas las opciones que queramos
 	//Las opciones se mostraran en el orden introducido
-	Label lblMotor = new Label("Â¿Tipo de motorizaciÃ³n?");
+	Label lblMotor = new Label("¿Tipo de motorización?");
 	Checkbox chkMotor1 = new Checkbox("Gasolina", false, chkgrMotor);
-	Checkbox chkMotor2 = new Checkbox("DiÃ©sel", false, chkgrMotor);
-	Checkbox chkMotor3 = new Checkbox("HÃ­brido", false, chkgrMotor);
-	Checkbox chkMotor4 = new Checkbox("ElÃ©ctrico", false, chkgrMotor);
+	Checkbox chkMotor2 = new Checkbox("Diésel", false, chkgrMotor);
+	Checkbox chkMotor3 = new Checkbox("Híbrido", false, chkgrMotor);
+	Checkbox chkMotor4 = new Checkbox("Eléctrico", false, chkgrMotor);
 	//Creamos el grupo	
 		CheckboxGroup chkgrPuerta = new CheckboxGroup();
-	Label lblPuerta = new Label("Â¿NÃºmero de puertas?");
+	Label lblPuerta = new Label("¿Número de puertas?");
 	Checkbox chkPuerta3 = new Checkbox("3 Puertas", false, chkgrPuerta);
 	Checkbox chkPuerta4 = new Checkbox("4 Puertas", false, chkgrPuerta);
 	Checkbox chkPuerta5 = new Checkbox("5 Puertas", false, chkgrPuerta);
 	//Creamos el grupo	
 		CheckboxGroup chkgrPintura = new CheckboxGroup();
-	Label lblPintura = new Label("Â¿Pintura Metalizada?");
+	Label lblPintura = new Label("¿Pintura Metalizada?");
 	Checkbox chkPinturaS = new Checkbox("Si", false, chkgrPintura);
 	Checkbox chkPinturaN = new Checkbox("No", false, chkgrPintura);
 	Button btnBoton1 = new Button("Calcular presupuesto");
@@ -57,7 +61,8 @@ public class Ejercicio4 extends Frame
 		add(pnlPanel1);
 		add(pnlPanel2);
 		add(pnlPanel3);
-		
+		this.addWindowListener(this);
+		btnBoton1.addActionListener(this);
 		setLocationRelativeTo(null);
 		setSize(500,250);
 		setVisible(true);
@@ -65,5 +70,72 @@ public class Ejercicio4 extends Frame
 	public static void main(String[] args)
 	{
 		new Ejercicio4();//Muestra el Checkbox
+	}
+	public void actionPerformed(ActionEvent ae) {
+		// TODO Auto-generated method stub
+		int presupuesto=0;
+		if (chkMotor1.getState()== true) {
+			presupuesto=presupuesto+7000;
+		}
+		if (chkMotor2.getState()== true) {
+			presupuesto=presupuesto+8000;
+		}
+		if (chkMotor3.getState()== true) {
+			presupuesto=presupuesto+9000;
+		}
+		if (chkMotor4.getState()== true) {
+			presupuesto=presupuesto+8500;
+		}
+		if (chkPuerta3.getState()== true) {
+			presupuesto=presupuesto+2000;
+		}
+		if (chkPuerta4.getState()== true) {
+			presupuesto=presupuesto+3000;
+		}
+		if (chkPuerta5.getState()== true) {
+			presupuesto=presupuesto+2500;
+		}
+		if (chkPinturaS.getState()== true) {
+			presupuesto=presupuesto+1500;
+		}
+		if (chkPinturaN.getState()== true) {
+			presupuesto=presupuesto+1500;
+		}
+		System.out.println(presupuesto);
+	}
+	@Override
+	public void windowOpened(WindowEvent we) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowClosing(WindowEvent we) {
+		
+			System.exit(0); 
+	}
+	@Override
+	public void windowClosed(WindowEvent we) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowIconified(WindowEvent we) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowDeiconified(WindowEvent we) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowActivated(WindowEvent we) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowDeactivated(WindowEvent we) {
+		// TODO Auto-generated method stub
+		
 	}
 }
